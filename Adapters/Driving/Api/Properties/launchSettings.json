@@ -1,0 +1,21 @@
+{
+  "profiles": {
+    "IDezApi.Api": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7029;http://localhost:5113"
+    },
+    "IDezApi.Tests": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Test"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5113"
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json"
+}
