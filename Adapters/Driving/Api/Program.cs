@@ -30,16 +30,11 @@ namespace IDezApi.Api
             // HttpClient 
             builder.Services.AddGenericClientHttpDependencyModule(builder.Configuration);
 
-            // Keycloak
-            //builder.Services.AddKeyCloakAuthDependencyModule(builder.Configuration);
 
             //Controller e Endpoints
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
-            // Jwt
-            //builder.Services.AddJwtProtectionDependencyModule(builder.Configuration);
 
             // Injeção dos módulos customizados  
             builder.Services.AddPostgreSQLDependencyModule(builder.Configuration);
@@ -61,10 +56,6 @@ namespace IDezApi.Api
                 app.UseSwaggerUI();
             }
 
-            //app.UseJwtAuthMiddleware();
-
-            // Authentication e Authorization
-            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();

@@ -2,6 +2,7 @@ using FluentValidation;
 
 using IDezApi.Api.Dtos.Request;
 using IDezApi.Api.Dtos.Response;
+using IDezApi.Domain.Adapters.Driving.Api.Mapping;
 using IDezApi.Domain.Enums;
 
 using Microsoft.AspNetCore.Mvc;
@@ -9,10 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace IDezApi.Api.Controllers
 {
     public class BuscarMunicipiosController(ILogger<BuscarMunicipiosController> logger,
-         IValidator<BuscarMunicipiosRequest> buscarMunicipiosValidatior) : ControllerBase
+         IValidator<BuscarMunicipiosRequest> buscarMunicipiosValidatior,
+         IMapperService mapperService) : ControllerBase
     {
         private readonly ILogger<BuscarMunicipiosController> _logger = logger;
         private readonly IValidator<BuscarMunicipiosRequest> _validator = buscarMunicipiosValidatior;
+        private readonly IMapperService _mapper = mapperService;
 
         [HttpGet]
         [Route("/api/get/BuscarMunicipios")]
@@ -34,7 +37,7 @@ namespace IDezApi.Api.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
-
+            var input = _mapper.Map<BuscarMunicipiosInput>(request);
 
 
             return Ok("BuscarMunicipiosController is operational.");
