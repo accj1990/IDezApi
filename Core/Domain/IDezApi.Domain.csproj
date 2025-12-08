@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Dtos\Responses\" />
+    <Folder Include="Application\Interfaces\" />
+  </ItemGroup>
+
 </Project>
