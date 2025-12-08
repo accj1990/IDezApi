@@ -1,12 +1,13 @@
 using System.Data;
 
-using Microsoft.Extensions.Logging;
-
 using IDezApi.Domain.Adapters.Driven.Storage;
 using IDezApi.Domain.Adapters.Driven.Storage.Repositories;
-using IDezApi.Domain.Entity;
 using IDezApi.Storage.Dapper;
 using IDezApi.Storage.PostgreSQL.Repositories.Base;
+
+using Microsoft.Extensions.Logging;
+
+using Template.Domain.Entity;
 
 namespace IDezApi.Storage.PostgreSQL.Repositories
 {

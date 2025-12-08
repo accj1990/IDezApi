@@ -1,5 +1,4 @@
-using IDezApi.Domain.Adapters.Driven.Storage;
-using IDezApi.Domain.Entity;
+using Template.Domain.Entity;
 
 namespace IDezApi.Domain.Adapters.Driven.Storage.Repositories
 {

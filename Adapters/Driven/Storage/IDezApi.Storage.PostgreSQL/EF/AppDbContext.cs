@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-using IDezApi.Domain.Entity;
+using Template.Domain.Entity;
 
 namespace IDezApi.Storage.PostgreSQL.EF
 {
