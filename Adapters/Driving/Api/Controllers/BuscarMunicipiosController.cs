@@ -37,7 +37,7 @@ namespace IDezApi.Api.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
-            var input = _mapper.Map<BuscarMunicipiosInput>(request);
+            //var input = _mapper.Map<BuscarMunicipiosInput>(request);
 
 
             return Ok("BuscarMunicipiosController is operational.");

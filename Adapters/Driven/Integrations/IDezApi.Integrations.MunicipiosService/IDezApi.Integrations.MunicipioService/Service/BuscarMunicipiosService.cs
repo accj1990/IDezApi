@@ -1,10 +1,10 @@
 namespace IDezApi.MunicipiosService.Service
 {
-    public class MunicipiosService : IMunicipiosService
+    public class BuscarMunicipiosService : IBuscarMunicipiosService
     {
         private readonly string _urlBrasilApi;
         private readonly string _urlIBGEApi;
-        private readonly ILogger<MunicipiosService> _logger;
+        private readonly ILogger<BuscarMunicipiosService> _logger;
         private readonly IGenericClientHttp _genericClient;
         private readonly IConfiguration _configuration;
         private readonly int contador = 0;
@@ -16,8 +16,8 @@ namespace IDezApi.MunicipiosService.Service
             "RS","RO","RR","SC","SP","SE","TO"
         };
 
-        public MunicipiosService(IConfiguration configuration,
-            ILogger<MunicipiosService> logger,
+        public BuscarMunicipiosService(IConfiguration configuration,
+            ILogger<BuscarMunicipiosService> logger,
             IGenericClientHttp genericClient)
         {
             _configuration = configuration;
@@ -27,21 +27,6 @@ namespace IDezApi.MunicipiosService.Service
             _urlIBGEApi = _configuration["Municipios:urlIBGEApi"]!;
 
         }
-        public async Task<List<MunicipiosDto>> BuscarMunicipiosAsync(CancellationToken cancellationToken)
-        {
-            try
-            {
-                _logger.LogInformation("Buscar municipios");
 
-                var municipios = await _genericClient.GetAsync<List<MunicipiosDto>>(_urlBrasilApi + "/");
-
-                return municipios;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public Task<MunicipiosDto> PesquisarMunicipioAsync(CancellationToken cancellationToken) => throw new NotImplementedException();
     }
 }

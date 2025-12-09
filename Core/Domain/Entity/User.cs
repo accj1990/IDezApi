@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 using IDezApi.Domain.Common;
 
-namespace Template.Domain.Entity
+namespace IDezApi.Domain.Entity
 {
     [Table("user", Schema = "public")]
     public class User : BaseEntity
