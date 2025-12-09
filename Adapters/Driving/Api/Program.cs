@@ -3,7 +3,6 @@ using IDezApi.Api.Validation;
 using IDezApi.Application;
 using IDezApi.Integrations.GenericClient;
 using IDezApi.Storage.MongoDb;
-using IDezApi.Storage.PostgreSQL;
 
 namespace IDezApi.Api
 {
@@ -37,7 +36,6 @@ namespace IDezApi.Api
             builder.Services.AddSwaggerGen();
 
             // Injeção dos módulos customizados  
-            builder.Services.AddPostgreSQLDependencyModule(builder.Configuration);
             builder.Services.AddMongoMongoDBDependencyModule(builder.Configuration);
             builder.Services.AddBusinessValidationsDependencyModule();
             builder.Services.AddApplicationDependencyModule(builder.Configuration);

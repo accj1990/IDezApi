@@ -24,7 +24,6 @@
     <ProjectReference Include="..\..\..\Core\Domain\IDezApi.Domain.csproj" />
     <ProjectReference Include="..\..\Driven\Integrations\IDezApi.Integrations.GenericClient\IDezApi.Integrations.GenericClient.csproj" />
     <ProjectReference Include="..\..\Driven\Storage\IDezApi.Storage.MongoDb\IDezApi.Storage.MongoDb.csproj" />
-    <ProjectReference Include="..\..\Driven\Storage\IDezApi.Storage.PostgreSQL\IDezApi.Storage.PostgreSQL.csproj" />
   </ItemGroup>
 
   <ItemGroup>

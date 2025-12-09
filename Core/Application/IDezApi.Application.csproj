@@ -7,6 +7,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\Adapters\Driven\Integrations\IDezApi.Integrations.MunicipioService\IDezApi.Integrations.MunicipioService\IDezApi.Integrations.MunicipioService.csproj" />
 	  <ProjectReference Include="..\Domain\IDezApi.Domain.csproj" />
 	</ItemGroup>
 
