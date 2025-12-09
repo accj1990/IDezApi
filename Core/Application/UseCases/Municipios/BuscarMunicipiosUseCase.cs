@@ -7,17 +7,22 @@ namespace IDezApi.Application.UseCases.Municipios
 {
     public class BuscarMunicipiosUseCase : IBuscarMunicipiosUseCase
     {
-        private readonly IBuscarMunicipioService _municipiosService;
+        private readonly IBuscarMunicipioService _buscarMunicipiosService;
 
-        public BuscarMunicipiosUseCase(IBuscarMunicipioService municipiosService)
+        public BuscarMunicipiosUseCase(IBuscarMunicipioService buscarMunicipiosService)
         {
-            _municipiosService = municipiosService;
+            _buscarMunicipiosService = buscarMunicipiosService;
         }
         public async Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf)
         {
-
-            return await _municipiosService.BuscarMunicipiosPorUfAsync(uf);
-
+            try
+            {
+                return await _buscarMunicipiosService.BuscarMunicipiosPorUfAsync(uf);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao pesquisar municípios por UF.", ex);
+            }
         }
     }
 }

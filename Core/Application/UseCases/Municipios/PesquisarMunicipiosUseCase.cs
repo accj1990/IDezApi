@@ -1,3 +1,4 @@
+using IDezApi.Domain.Adapters.Driven.Integrations;
 using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Application.Interfaces;
 
@@ -5,27 +6,20 @@ namespace IDezApi.Application.UseCases.Municipios
 {
     public class PesquisarMunicipiosUseCase : IPesquisarMunicipiosUseCase
     {
-        PesquisarMunicipiosUseCase() { }
+        private readonly IPesquisarMunicipioService _pesquisarMunicipioService;
+        public PesquisarMunicipiosUseCase(IPesquisarMunicipioService pesquisarMunicipioService)
+        {
+            _pesquisarMunicipioService = pesquisarMunicipioService;
+        }
         public Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf)
         {
             try
             {
-                var url = string.Format(_urlBrasilApi, uf);
-                var response = await _genericClient.GetAsync<List<MunicipioDto>>(url);
-                if (response.Success && response.Data != null)
-                {
-                    return response.Data;
-                }
-                else
-                {
-                    _logger.LogError("Erro ao buscar municípios para a UF {Uf}: {ErrorMessage}", uf, response.ErrorMessage);
-                    throw new Exception($"Erro ao buscar municípios para a UF {uf}: {response.ErrorMessage}");
-                }
+                return _pesquisarMunicipioService.PesquisarMunicipiosPorUfAsync(uf);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Exceção ao buscar municípios para a UF {Uf}", uf);
-                throw;
+                throw new Exception("Erro ao pesquisar municípios por UF.", ex);
             }
         }
     }
