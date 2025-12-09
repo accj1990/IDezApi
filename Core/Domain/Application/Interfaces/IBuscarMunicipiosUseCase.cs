@@ -5,6 +5,6 @@ namespace IDezApi.Domain.Application.Interfaces
     public interface IBuscarMunicipiosUseCase
     {
 
-        public Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf);
+        public Task<List<MunicipioDto>> ExecuteAsync(string uf, CancellationToken cancellationToken);
     }
 }

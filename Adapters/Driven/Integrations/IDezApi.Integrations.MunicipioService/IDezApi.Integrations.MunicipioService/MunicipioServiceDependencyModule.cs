@@ -11,6 +11,7 @@ namespace IDezApi.Integrations.MunicipioService
         public static IServiceCollection AddMunicipioDependencyModule(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton<IBuscarMunicipioService, BuscarMunicipiosService>();
+            services.AddSingleton<IPesquisarMunicipioService, PesquisarMunicipioService>();
 
             return services;
         }

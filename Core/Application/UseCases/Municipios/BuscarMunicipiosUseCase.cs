@@ -13,11 +13,11 @@ namespace IDezApi.Application.UseCases.Municipios
         {
             _buscarMunicipiosService = buscarMunicipiosService;
         }
-        public async Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf)
+        public async Task<List<MunicipioDto>> ExecuteAsync(string uf, CancellationToken cancellationToken)
         {
             try
             {
-                return await _buscarMunicipiosService.BuscarMunicipiosPorUfAsync(uf);
+                return await _buscarMunicipiosService.BuscarMunicipiosPorUfAsync(uf, cancellationToken);
             }
             catch (Exception ex)
             {

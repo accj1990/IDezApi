@@ -1,3 +1,6 @@
+using IDezApi.Application.UseCases.Municipios;
+using IDezApi.Domain.Application.Interfaces;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,7 +11,8 @@ public static class ApplicationDependencyModule
     public static IServiceCollection AddApplicationDependencyModule(this IServiceCollection services, IConfiguration configuration)
     {
         // registrar
-        //services.AddScoped<ICreateUserUseCase, CreateUserUseCase>();
+        services.AddScoped<IBuscarMunicipiosUseCase, BuscarMunicipiosUseCase>();
+        services.AddScoped<IPesquisarMunicipiosUseCase, PesquisarMunicipiosUseCase>();
 
 
         return services;

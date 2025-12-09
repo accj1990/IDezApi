@@ -3,25 +3,22 @@ using FluentValidation;
 using IDezApi.Api.Dtos.Request;
 using IDezApi.Api.Dtos.Response;
 using IDezApi.Domain.Adapters.Driving.Api.Mapping;
-using IDezApi.Domain.Application.Dtos.Requests;
-using IDezApi.Domain.Application.Interfaces;
 using IDezApi.Domain.Enums;
 
 using Microsoft.AspNetCore.Mvc;
 
 namespace IDezApi.Api.Controllers
 {
-    public class BuscarMunicipiosController(ILogger<BuscarMunicipiosController> logger,
+    public class PesquisarMunicipiosController(ILogger<PesquisarMunicipiosController> logger,
          IValidator<BuscarMunicipiosRequest> buscarMunicipiosValidatior,
-         IMapperService mapperService, IBuscarMunicipiosUseCase buscarMunicipiosUseCase) : ControllerBase
+         IMapperService mapperService) : ControllerBase
     {
-        private readonly ILogger<BuscarMunicipiosController> _logger = logger;
+        private readonly ILogger<PesquisarMunicipiosController> _logger = logger;
         private readonly IValidator<BuscarMunicipiosRequest> _validator = buscarMunicipiosValidatior;
         private readonly IMapperService _mapper = mapperService;
-        private readonly IBuscarMunicipiosUseCase _buscarMunicipiosUseCase = buscarMunicipiosUseCase;
 
-        [HttpPost]
-        [Route("/api/get/BuscarMunicipios")]
+        [HttpGet]
+        [Route("/api/get/PesquisarMunicipios")]
         public ActionResult<BuscarMunicipiosResponse> ExecuteAsync([FromBody] BuscarMunicipiosRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("BuscarMunicipiosController: Create method called with request: {@Request}", request);
@@ -40,9 +37,6 @@ namespace IDezApi.Api.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
-            var input = _mapper.Map<BuscarMunicipiosRequest, BuscarMunicipiosInput>(request);
-
-            var response = _buscarMunicipiosUseCase.ExecuteAsync(input.Uf, cancellationToken);
 
 
             return Ok("BuscarMunicipiosController is operational.");

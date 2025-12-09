@@ -4,7 +4,7 @@ namespace IDezApi.Domain.Adapters.Driven.Integrations
 {
     public interface IBuscarMunicipioService
     {
-        Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf);
+        Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf, CancellationToken cancellationToken);
 
     }
 }

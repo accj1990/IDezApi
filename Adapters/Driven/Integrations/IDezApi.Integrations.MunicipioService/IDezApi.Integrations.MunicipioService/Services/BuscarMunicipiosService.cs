@@ -25,7 +25,7 @@ namespace IDezApi.Integrations.MunicipioService.Services
         }
 
 
-        public async Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf)
+        public async Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf, CancellationToken cancellationToken)
         {
             try
             {

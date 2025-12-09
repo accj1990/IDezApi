@@ -2,6 +2,7 @@ using IDezApi.Api.Mapping;
 using IDezApi.Api.Validation;
 using IDezApi.Application;
 using IDezApi.Integrations.GenericClient;
+using IDezApi.Integrations.MunicipioService;
 using IDezApi.Storage.MongoDb;
 
 namespace IDezApi.Api
@@ -13,7 +14,7 @@ namespace IDezApi.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Configurar CORS antes do Build
-            builder.Services.AddCors(options =>
+            /*builder.Services.AddCors(options =>
             {
                 options.AddPolicy("DevCorsPolicy", policy =>
                 {
@@ -24,7 +25,7 @@ namespace IDezApi.Api
 
                 });
             });
-
+            */
 
             // HttpClient 
             builder.Services.AddGenericClientHttpDependencyModule(builder.Configuration);
@@ -38,6 +39,12 @@ namespace IDezApi.Api
             // Injeção dos módulos customizados  
             builder.Services.AddMongoMongoDBDependencyModule(builder.Configuration);
             builder.Services.AddBusinessValidationsDependencyModule();
+
+
+            // Serviços de Integração customizados
+            builder.Services.AddMunicipioDependencyModule(builder.Configuration);
+
+            // Application
             builder.Services.AddApplicationDependencyModule(builder.Configuration);
 
             // AutoMapper
@@ -45,7 +52,7 @@ namespace IDezApi.Api
 
             var app = builder.Build();
 
-            app.UseCors("DevCorsPolicy");
+            //app.UseCors("DevCorsPolicy");
 
             /// Swagger
             if (app.Environment.IsDevelopment())
