@@ -1,4 +1,7 @@
-namespace IDezApi.MunicipiosService.Service
+using IDezApi.Integrations.MunicipioService.Interfaces;
+using IDezApi.Integrations.MunicipiosService.Dto;
+
+namespace IDezApi.Integrations.MunicipiosService.Service
 {
     public class BuscarMunicipiosService : IBuscarMunicipiosService
     {
@@ -8,7 +11,7 @@ namespace IDezApi.MunicipiosService.Service
         private readonly IGenericClientHttp _genericClient;
         private readonly IConfiguration _configuration;
         private readonly int contador = 0;
-        private Dictionary<string, List<MunicipiosDto>> _cache;
+        private Dictionary<string, List<MunicipioDto>> _cache;
         private readonly List<string> estados = new()
         {
             "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA",

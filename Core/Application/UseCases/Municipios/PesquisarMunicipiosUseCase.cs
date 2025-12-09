@@ -1,12 +1,11 @@
-
-using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Application.Interfaces;
+using IDezApi.Domain.Application.Interfaces.Dto;
 
 namespace IDezApi.Application.UseCases.Municipios
 {
     public class PesquisarMunicipiosUseCase : IPesquisarMunicipiosUseCase
     {
         PesquisarMunicipiosUseCase() { }
-        public Task<List<MunicipiosDto>> PesquisarMunicipiosPorUfAsync(string uf) => throw new NotImplementedException();
+        public Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf) => throw new NotImplementedException();
     }
 }

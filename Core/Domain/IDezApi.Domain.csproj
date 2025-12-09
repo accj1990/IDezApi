@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Application\Dtos\Responses\" />
+    <Folder Include="Application\Dtos\Requests\" />
+
   </ItemGroup>
 
 </Project>

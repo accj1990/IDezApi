@@ -1,4 +1,4 @@
-using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
+using IDezApi.Domain.Application.Interfaces.Dto;
 
 namespace IDezApi.Domain.Application.Interfaces
 {

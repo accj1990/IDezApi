@@ -1,6 +1,5 @@
-
-using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Application.Interfaces;
+using IDezApi.Domain.Application.Interfaces.Dto;
 
 namespace IDezApi.Application.UseCases.Municipios
 {
@@ -12,6 +11,6 @@ namespace IDezApi.Application.UseCases.Municipios
         {
             ///_municipiosService = municipiosService;
         }
-        public Task<List<MunicipiosDto>> BuscarMunicipiosPorUfAsync(string uf) => throw new NotImplementedException();
+        public Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf) => throw new NotImplementedException();
     }
 }
