@@ -1,6 +1,8 @@
 using IDezApi.Domain.Adapters.Driven.Integrations;
-using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
+using IDezApi.Domain.Application.Dtos.Responses;
 using IDezApi.Domain.Application.Interfaces;
+
+using static IDezApi.Domain.Application.Dtos.Responses.PesquisarMunicipiosOutputModel;
 
 namespace IDezApi.Application.UseCases.Municipios
 {
@@ -11,11 +13,23 @@ namespace IDezApi.Application.UseCases.Municipios
         {
             _pesquisarMunicipioService = pesquisarMunicipioService;
         }
-        public Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf)
+        public async Task<PesquisarMunicipiosOutputModel> ExecuteAsync(string uf, CancellationToken cancellationToken)
         {
             try
             {
-                return _pesquisarMunicipioService.PesquisarMunicipiosPorUfAsync(uf);
+                var items = await _pesquisarMunicipioService.PesquisarMunicipiosPorUfAsync(uf);
+
+                var resposta = new PesquisarMunicipiosOutputModel()
+                {
+                    Data = new GetAllMunicipiosIBGE
+                    {
+                        items = items
+                    },
+                    Message = "Municipios successfully retrieved",
+                    IsSuccess = true
+                };
+
+                return resposta;
             }
             catch (Exception ex)
             {

@@ -23,7 +23,7 @@ namespace IDezApi.Integrations.MunicipioService.Services
             _logger = logger;
             _genericClient = genericClient;
             _configuration = configuration;
-            _urlIBGEApi = _configuration["Municipios:_urlIBGEApi"]!;
+            _urlIBGEApi = _configuration["Municipios:urlIBGEApi"]!;
         }
         public async Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf)
         {

@@ -1,8 +1,8 @@
-using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
+using IDezApi.Domain.Application.Dtos.Responses;
 namespace IDezApi.Domain.Application.Interfaces
 {
     public interface IPesquisarMunicipiosUseCase
     {
-        public Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf);
+        public Task<PesquisarMunicipiosOutputModel> ExecuteAsync(string uf, CancellationToken cancellationToken);
     }
 }

@@ -16,6 +16,8 @@ namespace IDezApi.Api.Mapping
             CreateMap<BuscarMunicipiosOutputModel, BuscarMunicipiosResponse>();
 
 
+            CreateMap<PesquisarMunicipiosRequest, PesquisarMunicipiosInput>();
+            CreateMap<PesquisarMunicipiosOutputModel, PesquisarMunicipiosResponse>();
 
 
         }
