@@ -1,3 +1,4 @@
+
 using IDezApi.Domain.Adapters.Driven.Integrations;
 using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Adapters.Driven.Integrations.GenericClientHttp;
@@ -7,30 +8,29 @@ using Microsoft.Extensions.Logging;
 
 namespace IDezApi.Integrations.MunicipioService.Services
 {
-    public class BuscarMunicipiosService : IBuscarMunicipioService
+    public class PesquisarMunicipioService : IPesquisarMunicipioService
     {
-        private readonly string _urlBrasilApi;
-        private readonly ILogger<BuscarMunicipiosService> _logger;
+        private readonly string _urlIBGEApi;
+        private readonly ILogger<PesquisarMunicipioService> _logger;
         private readonly IGenericClientHttp _genericClient;
         private readonly IConfiguration _configuration;
 
-        public BuscarMunicipiosService(IConfiguration configuration,
-            ILogger<BuscarMunicipiosService> logger,
-            IGenericClientHttp genericClient)
+        public PesquisarMunicipioService(
+            ILogger<PesquisarMunicipioService> logger,
+            IGenericClientHttp genericClient,
+            IConfiguration configuration)
         {
-            _configuration = configuration;
             _logger = logger;
             _genericClient = genericClient;
-            _urlBrasilApi = _configuration["Municipios:urlBrasilApi"]!;
+            _configuration = configuration;
+            _urlIBGEApi = _configuration["Municipios:_urlIBGEApi"]!;
         }
-
-
-        public async Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf)
+        public async Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf)
         {
             try
             {
-                var url = string.Format(_urlBrasilApi, uf);
-                var response = await _genericClient.GetAsync<List<MunicipioDto>>(url);
+                var url = string.Format(_urlIBGEApi, uf);
+                var response = await _genericClient.GetAsync<List<MunicipioIBGEDto>>(url);
                 if (response.Success && response.Data != null)
                 {
                     return response.Data;
