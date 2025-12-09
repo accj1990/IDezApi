@@ -29,7 +29,7 @@ namespace IDezApi.Integrations.MunicipioService.Services
         {
             try
             {
-                var url = string.Format(_urlBrasilApi, uf);
+                var url = string.Format(_urlBrasilApi + uf, uf);
                 var response = await _genericClient.GetAsync<List<MunicipioDto>>(url);
                 if (response.Success && response.Data != null)
                 {

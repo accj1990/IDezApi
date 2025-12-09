@@ -1,10 +1,10 @@
-using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
+using IDezApi.Domain.Application.Dtos.Responses;
 
 namespace IDezApi.Domain.Application.Interfaces
 {
     public interface IBuscarMunicipiosUseCase
     {
 
-        public Task<List<MunicipioDto>> ExecuteAsync(string uf, CancellationToken cancellationToken);
+        Task<BuscarMunicipiosOutputModel> ExecuteAsync(string uf, CancellationToken cancellationToken);
     }
 }

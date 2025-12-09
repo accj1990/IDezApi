@@ -22,7 +22,7 @@ namespace IDezApi.Api.Controllers
 
         [HttpPost]
         [Route("/api/get/BuscarMunicipios")]
-        public ActionResult<BuscarMunicipiosResponse> ExecuteAsync([FromBody] BuscarMunicipiosRequest request, CancellationToken cancellationToken)
+        public async Task<ActionResult<BuscarMunicipiosResponse>> ExecuteAsync([FromBody] BuscarMunicipiosRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("BuscarMunicipiosController: Create method called with request: {@Request}", request);
 
@@ -42,10 +42,19 @@ namespace IDezApi.Api.Controllers
 
             var input = _mapper.Map<BuscarMunicipiosRequest, BuscarMunicipiosInput>(request);
 
-            var response = _buscarMunicipiosUseCase.ExecuteAsync(input.Uf, cancellationToken);
+            var response = await _buscarMunicipiosUseCase.ExecuteAsync(input.Uf, cancellationToken);
 
+            if (response.IsSuccess)
+            {
+                return Ok(response);
+            }
 
-            return Ok("BuscarMunicipiosController is operational.");
+            if (response.BusinessRuleViolation)
+            {
+                return UnprocessableEntity(response);
+            }
+
+            return StatusCode(500, response.Message);
         }
     }
 }

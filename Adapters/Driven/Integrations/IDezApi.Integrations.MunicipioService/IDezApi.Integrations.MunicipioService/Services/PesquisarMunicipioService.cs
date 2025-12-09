@@ -29,7 +29,7 @@ namespace IDezApi.Integrations.MunicipioService.Services
         {
             try
             {
-                var url = string.Format(_urlIBGEApi, uf);
+                var url = string.Format(_urlIBGEApi + uf + "/municipios", uf);
                 var response = await _genericClient.GetAsync<List<MunicipioIBGEDto>>(url);
                 if (response.Success && response.Data != null)
                 {

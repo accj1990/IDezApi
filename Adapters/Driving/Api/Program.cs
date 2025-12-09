@@ -14,7 +14,7 @@ namespace IDezApi.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Configurar CORS antes do Build
-            /*builder.Services.AddCors(options =>
+            builder.Services.AddCors(options =>
             {
                 options.AddPolicy("DevCorsPolicy", policy =>
                 {
@@ -25,7 +25,6 @@ namespace IDezApi.Api
 
                 });
             });
-            */
 
             // HttpClient 
             builder.Services.AddGenericClientHttpDependencyModule(builder.Configuration);
@@ -52,7 +51,7 @@ namespace IDezApi.Api
 
             var app = builder.Build();
 
-            //app.UseCors("DevCorsPolicy");
+            app.UseCors("DevCorsPolicy");
 
             /// Swagger
             if (app.Environment.IsDevelopment())
