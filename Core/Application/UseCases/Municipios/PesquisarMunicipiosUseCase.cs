@@ -1,5 +1,5 @@
+using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Application.Interfaces;
-using IDezApi.Domain.Application.Interfaces.Dto;
 
 namespace IDezApi.Application.UseCases.Municipios
 {

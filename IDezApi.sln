@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11217.181 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{09DF2EE5-5FE7-3EC7-59CB-CAD7E0928979}"
 EndProject
@@ -47,8 +47,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDezApi.Storage.MongoDb", "Adapters\Driven\Storage\IDezApi.Storage.MongoDb\IDezApi.Storage.MongoDb.csproj", "{0AD9461C-3736-4E70-BBDA-E20A6318FC31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDezApi.Integrations.GenericClient", "Adapters\Driven\Integrations\IDezApi.Integrations.GenericClient\IDezApi.Integrations.GenericClient.csproj", "{AE6B8778-9B7D-4C96-A56E-BCCA7C2DA9FB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDezApi.Integrations.MunicipioService", "Adapters\Driven\Integrations\IDezApi.Integrations.MunicipiosService\IDezApi.Integrations.MunicipioService\IDezApi.Integrations.MunicipioService.csproj", "{3C9E1353-6B41-47E4-B489-20D67F8B9384}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,18 +154,6 @@ Global
 		{AE6B8778-9B7D-4C96-A56E-BCCA7C2DA9FB}.Release|x64.Build.0 = Release|Any CPU
 		{AE6B8778-9B7D-4C96-A56E-BCCA7C2DA9FB}.Release|x86.ActiveCfg = Release|Any CPU
 		{AE6B8778-9B7D-4C96-A56E-BCCA7C2DA9FB}.Release|x86.Build.0 = Release|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Debug|x64.Build.0 = Debug|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Debug|x86.Build.0 = Debug|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Release|x64.ActiveCfg = Release|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Release|x64.Build.0 = Release|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Release|x86.ActiveCfg = Release|Any CPU
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,7 +176,6 @@ Global
 		{084D5424-F5C3-46F1-A87A-739B25DDB290} = {FB724721-73D2-401B-52EF-C52D09C4CAF7}
 		{0AD9461C-3736-4E70-BBDA-E20A6318FC31} = {084D5424-F5C3-46F1-A87A-739B25DDB290}
 		{AE6B8778-9B7D-4C96-A56E-BCCA7C2DA9FB} = {BC40538C-F4CD-B897-A86B-75CE478F96DA}
-		{3C9E1353-6B41-47E4-B489-20D67F8B9384} = {BC40538C-F4CD-B897-A86B-75CE478F96DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A382CD7-1CD6-4DC9-9245-3148D87BAB5B}

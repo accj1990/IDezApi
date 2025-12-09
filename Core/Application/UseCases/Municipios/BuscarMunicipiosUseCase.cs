@@ -1,5 +1,7 @@
+using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Application.Interfaces;
-using IDezApi.Domain.Application.Interfaces.Dto;
+//using IDezApi.Integrations.MunicipioService.Interfaces;
+
 
 namespace IDezApi.Application.UseCases.Municipios
 {
@@ -9,8 +11,14 @@ namespace IDezApi.Application.UseCases.Municipios
 
         public BuscarMunicipiosUseCase(/*IBuscarMunicipiosService municipiosService*/)
         {
-            ///_municipiosService = municipiosService;
+            //_municipiosService = municipiosService;
         }
-        public Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf) => throw new NotImplementedException();
+        public async Task<List<MunicipioDto>> BuscarMunicipiosPorUfAsync(string uf)
+        {
+
+            //return await _municipiosService.BuscarMunicipiosPorUfAsync(uf);
+
+            return null;
+        }
     }
 }

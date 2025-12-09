@@ -1,4 +1,4 @@
-namespace IDezApi.Domain.Application.Interfaces.Dto
+namespace IDezApi.Domain.Adapters.Driven.Integrations.Dto
 {
     public class MunicipioDto
     {

@@ -25,7 +25,7 @@ namespace IDezApi.Api.Controllers
 
             if (request is null)
             {
-                _logger.LogWarning("CreateUserController: Create method received null request");
+                _logger.LogWarning("BuscarMunicipiosController: Create method received null request");
 
                 return BadRequest(PatternsMessagesValidation.RequestInValid);
             }

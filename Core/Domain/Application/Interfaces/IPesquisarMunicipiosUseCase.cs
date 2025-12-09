@@ -1,5 +1,4 @@
-using IDezApi.Domain.Application.Interfaces.Dto;
-
+using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 namespace IDezApi.Domain.Application.Interfaces
 {
     public interface IPesquisarMunicipiosUseCase
