@@ -1,5 +1,5 @@
-using IDezApi.Domain.Adapters.Driven.Integrations;
 using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
+using IDezApi.Domain.Adapters.Driven.Integrations.Services;
 
 namespace IDezApi.Tests.Unit.Fixtures
 {

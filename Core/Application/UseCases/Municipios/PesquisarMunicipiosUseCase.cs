@@ -1,4 +1,4 @@
-using IDezApi.Domain.Adapters.Driven.Integrations;
+using IDezApi.Domain.Adapters.Driven.Integrations.Services;
 using IDezApi.Domain.Application.Dtos.Responses;
 using IDezApi.Domain.Application.Interfaces;
 using IDezApi.Domain.Enums;

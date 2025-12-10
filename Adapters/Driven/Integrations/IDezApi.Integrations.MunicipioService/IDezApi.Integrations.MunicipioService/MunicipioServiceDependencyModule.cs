@@ -1,4 +1,4 @@
-using IDezApi.Domain.Adapters.Driven.Integrations;
+using IDezApi.Domain.Adapters.Driven.Integrations.Services;
 using IDezApi.Integrations.MunicipioService.Services;
 
 using Microsoft.Extensions.Configuration;

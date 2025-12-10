@@ -1,6 +1,6 @@
 using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 
-namespace IDezApi.Domain.Adapters.Driven.Integrations
+namespace IDezApi.Domain.Adapters.Driven.Integrations.Services
 {
     public interface IBuscarMunicipioService
     {

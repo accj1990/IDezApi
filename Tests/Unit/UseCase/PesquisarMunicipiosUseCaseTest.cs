@@ -3,7 +3,7 @@ using FakeItEasy;
 using FluentAssertions;
 
 using IDezApi.Application.UseCases.Municipios;
-using IDezApi.Domain.Adapters.Driven.Integrations;
+using IDezApi.Domain.Adapters.Driven.Integrations.Services;
 using IDezApi.Domain.Enums;
 using IDezApi.Tests.Unit.Base;
 using IDezApi.Tests.Unit.Fixtures;

@@ -1,8 +1,6 @@
-
-
-using IDezApi.Domain.Adapters.Driven.Integrations;
 using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Adapters.Driven.Integrations.GenericClientHttp;
+using IDezApi.Domain.Adapters.Driven.Integrations.Services;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
