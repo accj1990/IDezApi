@@ -1,6 +1,6 @@
 namespace IDezApi.Domain.Application.Dtos.Requests
 {
-    public class BuscarMunicipiosInput
+    public class PesquisarMunicipiosInputModel
     {
         public string Uf { get; set; } = default!;
 

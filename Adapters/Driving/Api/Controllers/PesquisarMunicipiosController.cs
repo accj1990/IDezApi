@@ -41,7 +41,7 @@ namespace IDezApi.Api.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
-            var input = _mapper.Map<PesquisarMunicipiosRequest, PesquisarMunicipiosInput>(request);
+            var input = _mapper.Map<PesquisarMunicipiosRequest, PesquisarMunicipiosInputModel>(request);
 
             var response = await _pesquisarMunicipiosUseCase.ExecuteAsync(input.Uf, cancellationToken);
 

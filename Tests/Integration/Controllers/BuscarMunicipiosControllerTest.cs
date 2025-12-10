@@ -40,7 +40,7 @@ public class BuscarMunicipiosControllerTest : ControllerBase, IClassFixture<Inte
     public async Task ShouldReturnBadRequestWhenValidationFails()
     {
         // Arrange
-        BuscarMunicipiosRequest request = new BuscarMunicipiosRequest { Uf = "XX" };
+        var request = new BuscarMunicipiosRequest { Uf = "XX" };
 
         var stringPayload = JsonConvert.SerializeObject(request);
 
@@ -56,7 +56,7 @@ public class BuscarMunicipiosControllerTest : ControllerBase, IClassFixture<Inte
     public async Task ShouldReturnUnprocessableEntityWhenBusinessRuleViolation()
     {
         // Arrange
-        BuscarMunicipiosRequest request = new BuscarMunicipiosRequest { Uf = "XX" };
+        var request = new BuscarMunicipiosRequest { Uf = "XX" };
 
         var stringPayload = JsonConvert.SerializeObject(request);
 

@@ -40,7 +40,7 @@ namespace IDezApi.Api.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
-            var input = _mapper.Map<BuscarMunicipiosRequest, BuscarMunicipiosInput>(request);
+            var input = _mapper.Map<BuscarMunicipiosRequest, BuscarMunicipiosInputModel>(request);
 
             var response = await _buscarMunicipiosUseCase.ExecuteAsync(input.Uf, cancellationToken);
 

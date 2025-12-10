@@ -1,6 +1,9 @@
 using IDezApi.Domain.Adapters.Driven.Integrations;
 using IDezApi.Domain.Application.Dtos.Responses;
 using IDezApi.Domain.Application.Interfaces;
+using IDezApi.Domain.Enums;
+
+using Microsoft.Extensions.Logging;
 
 using static IDezApi.Domain.Application.Dtos.Responses.BuscarMunicipiosOutputModel;
 
@@ -10,9 +13,11 @@ namespace IDezApi.Application.UseCases.Municipios
     public class BuscarMunicipiosUseCase : IBuscarMunicipiosUseCase
     {
         private readonly IBuscarMunicipioService _buscarMunicipiosService;
+        private readonly ILogger<BuscarMunicipiosUseCase> _logger;
 
-        public BuscarMunicipiosUseCase(IBuscarMunicipioService buscarMunicipiosService)
+        public BuscarMunicipiosUseCase(ILogger<BuscarMunicipiosUseCase> logger, IBuscarMunicipioService buscarMunicipiosService)
         {
+            _logger = logger;
             _buscarMunicipiosService = buscarMunicipiosService;
         }
         public async Task<BuscarMunicipiosOutputModel> ExecuteAsync(string uf, CancellationToken cancellationToken)
@@ -27,16 +32,20 @@ namespace IDezApi.Application.UseCases.Municipios
                     {
                         items = items
                     },
-                    Message = "Municipios successfully retrieved",
+                    Message = PatternsMessages.MessageSucessUseCaseMunicipios,
                     IsSuccess = true
                 };
 
                 return resposta;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception("Erro ao pesquisar municípios por UF.", ex);
+                return new BuscarMunicipiosOutputModel()
+                {
+                    Message = PatternsMessages.MessageErrorUseCaseMunicipios,
+                    IsSuccess = false
+                };
             }
         }
     }

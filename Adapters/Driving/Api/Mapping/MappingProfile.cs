@@ -12,11 +12,11 @@ namespace IDezApi.Api.Mapping
         public MappingProfile()
         {
 
-            CreateMap<BuscarMunicipiosRequest, BuscarMunicipiosInput>();
+            CreateMap<BuscarMunicipiosRequest, BuscarMunicipiosInputModel>();
             CreateMap<BuscarMunicipiosOutputModel, BuscarMunicipiosResponse>();
 
 
-            CreateMap<PesquisarMunicipiosRequest, PesquisarMunicipiosInput>();
+            CreateMap<PesquisarMunicipiosRequest, PesquisarMunicipiosInputModel>();
             CreateMap<PesquisarMunicipiosOutputModel, PesquisarMunicipiosResponse>();
 
 

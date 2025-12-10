@@ -26,7 +26,7 @@ namespace IDezApi.Tests.Integration.Controllers
         public async Task ShouldReturnSuccess()
         {
 
-            var request = new BuscarMunicipiosRequest { Uf = "MG" };
+            var request = new PesquisarMunicipiosRequest { Uf = "MG" };
 
             var json = JsonConvert.SerializeObject(request);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -41,7 +41,7 @@ namespace IDezApi.Tests.Integration.Controllers
         public async Task ShouldReturnBadRequestWhenValidationFails()
         {
             // Arrange
-            BuscarMunicipiosRequest request = new BuscarMunicipiosRequest { Uf = "XX" };
+            var request = new PesquisarMunicipiosRequest { Uf = "XX" };
 
             var stringPayload = JsonConvert.SerializeObject(request);
 
@@ -57,7 +57,7 @@ namespace IDezApi.Tests.Integration.Controllers
         public async Task ShouldReturnUnprocessableEntityWhenBusinessRuleViolation()
         {
             // Arrange
-            BuscarMunicipiosRequest request = new BuscarMunicipiosRequest { Uf = "XX" };
+            var request = new PesquisarMunicipiosRequest { Uf = "XX" };
 
             var stringPayload = JsonConvert.SerializeObject(request);
 

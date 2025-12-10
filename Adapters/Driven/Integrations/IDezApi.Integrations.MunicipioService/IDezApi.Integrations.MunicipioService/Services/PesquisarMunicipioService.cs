@@ -1,4 +1,5 @@
 
+
 using IDezApi.Domain.Adapters.Driven.Integrations;
 using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Adapters.Driven.Integrations.GenericClientHttp;
@@ -25,7 +26,8 @@ namespace IDezApi.Integrations.MunicipioService.Services
             _configuration = configuration;
             _urlIBGEApi = _configuration["Municipios:urlIBGEApi"]!;
         }
-        public async Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf)
+
+        public async Task<List<MunicipioIBGEDto>> PesquisarMunicipiosPorUfAsync(string uf, CancellationToken cancellationToken)
         {
             try
             {
@@ -46,6 +48,7 @@ namespace IDezApi.Integrations.MunicipioService.Services
                 _logger.LogError(ex, "Exceção ao buscar municípios para a UF {Uf}", uf);
                 throw;
             }
+
         }
     }
 }
