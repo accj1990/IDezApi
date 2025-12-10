@@ -1,3 +1,4 @@
+using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Adapters.Driven.Integrations.Services;
 using IDezApi.Domain.Application.Dtos.Responses;
 using IDezApi.Domain.Application.Interfaces;
@@ -27,9 +28,14 @@ namespace IDezApi.Application.UseCases.Municipios
             {
                 if (await _cacheService.GetAsync(uf) is not null)
                 {
+                    var itemsCache = await _cacheService.GetAsync(uf);
+
                     var respostaCache = new PesquisarMunicipiosOutputModel()
                     {
-                        Data = await _cacheService.GetAsync(uf) as GetAllMunicipiosIBGE,
+                        Data = new GetAllMunicipiosIBGE
+                        {
+                            items = itemsCache as List<MunicipioIBGEDto> ?? new List<MunicipioIBGEDto>()
+                        },
                         Message = PatternsMessages.MessageSucessUseCaseMunicipios,
                         IsSuccess = true
                     };

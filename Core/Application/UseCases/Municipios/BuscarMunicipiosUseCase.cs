@@ -1,3 +1,4 @@
+using IDezApi.Domain.Adapters.Driven.Integrations.Dto;
 using IDezApi.Domain.Adapters.Driven.Integrations.Services;
 using IDezApi.Domain.Application.Dtos.Responses;
 using IDezApi.Domain.Application.Interfaces;
@@ -46,9 +47,14 @@ namespace IDezApi.Application.UseCases.Municipios
                 }
                 else
                 {
+                    var itemsCache = await _cacheService.GetAsync(uf);
+
                     var resposta = new BuscarMunicipiosOutputModel()
                     {
-                        Data = await _cacheService.GetAsync(uf) as GetAllMunicipios,
+                        Data = new GetAllMunicipios
+                        {
+                            items = itemsCache as List<MunicipioDto> ?? new List<MunicipioDto>()
+                        },
                         Message = PatternsMessages.MessageSucessUseCaseMunicipios,
                         IsSuccess = true
                     };
