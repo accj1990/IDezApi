@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Application\IDezApi.Application.csproj" />
     <ProjectReference Include="..\..\..\Core\Domain\IDezApi.Domain.csproj" />
+    <ProjectReference Include="..\..\Driven\Integrations\IDezApi.Integrations.Cache\IDezApi.Integrations.Cache\IDezApi.Integrations.Cache.csproj" />
     <ProjectReference Include="..\..\Driven\Integrations\IDezApi.Integrations.GenericClient\IDezApi.Integrations.GenericClient.csproj" />
   </ItemGroup>
 

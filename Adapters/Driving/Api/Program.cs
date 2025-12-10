@@ -1,9 +1,9 @@
 using IDezApi.Api.Mapping;
 using IDezApi.Api.Validation;
 using IDezApi.Application;
+using IDezApi.Integrations.Cache;
 using IDezApi.Integrations.GenericClient;
 using IDezApi.Integrations.MunicipioService;
-
 namespace IDezApi.Api
 {
     public partial class Program
@@ -38,6 +38,7 @@ namespace IDezApi.Api
 
             builder.Services.AddBusinessValidationsDependencyModule();
 
+            builder.Services.AddCacheDependencyModule(builder.Configuration);
 
             // Serviços de Integração customizados
             builder.Services.AddMunicipioDependencyModule(builder.Configuration);

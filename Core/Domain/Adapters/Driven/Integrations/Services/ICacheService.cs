@@ -6,7 +6,7 @@ namespace IDezApi.Domain.Adapters.Driven.Integrations.Services
 
         Task RemoveAsync(string chave, object value);
 
-        Task<object> GetAsync(string chave);
+        Task<object?> GetAsync(string chave);
 
     }
 }

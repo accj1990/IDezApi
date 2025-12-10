@@ -14,29 +14,47 @@ namespace IDezApi.Application.UseCases.Municipios
     {
         private readonly IBuscarMunicipioService _buscarMunicipiosService;
         private readonly ILogger<BuscarMunicipiosUseCase> _logger;
+        private readonly ICacheService _cacheService;
 
-        public BuscarMunicipiosUseCase(ILogger<BuscarMunicipiosUseCase> logger, IBuscarMunicipioService buscarMunicipiosService)
+        public BuscarMunicipiosUseCase(ILogger<BuscarMunicipiosUseCase> logger, IBuscarMunicipioService buscarMunicipiosService, ICacheService cacheService)
         {
             _logger = logger;
             _buscarMunicipiosService = buscarMunicipiosService;
+            _cacheService = cacheService;
         }
         public async Task<BuscarMunicipiosOutputModel> ExecuteAsync(string uf, CancellationToken cancellationToken)
         {
             try
             {
-                var items = await _buscarMunicipiosService.BuscarMunicipiosPorUfAsync(uf, cancellationToken);
-
-                var resposta = new BuscarMunicipiosOutputModel()
+                if (await _cacheService.GetAsync(uf) is null or false)
                 {
-                    Data = new GetAllMunicipios
-                    {
-                        items = items
-                    },
-                    Message = PatternsMessages.MessageSucessUseCaseMunicipios,
-                    IsSuccess = true
-                };
+                    var items = await _buscarMunicipiosService.BuscarMunicipiosPorUfAsync(uf, cancellationToken);
 
-                return resposta;
+                    await _cacheService.AddAsync(uf, items);
+
+                    var resposta = new BuscarMunicipiosOutputModel()
+                    {
+                        Data = new GetAllMunicipios
+                        {
+                            items = items
+                        },
+                        Message = PatternsMessages.MessageSucessUseCaseMunicipios,
+                        IsSuccess = true
+                    };
+
+                    return resposta;
+                }
+                else
+                {
+                    var resposta = new BuscarMunicipiosOutputModel()
+                    {
+                        Data = await _cacheService.GetAsync(uf) as GetAllMunicipios,
+                        Message = PatternsMessages.MessageSucessUseCaseMunicipios,
+                        IsSuccess = true
+                    };
+
+                    return resposta;
+                }
 
             }
             catch (Exception)
