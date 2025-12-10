@@ -3,11 +3,10 @@ using IDezApi.Api.Validation;
 using IDezApi.Application;
 using IDezApi.Integrations.GenericClient;
 using IDezApi.Integrations.MunicipioService;
-using IDezApi.Storage.MongoDb;
 
 namespace IDezApi.Api
 {
-    public class Program
+    public partial class Program
     {
         public static void Main(string[] args)
         {
@@ -36,7 +35,7 @@ namespace IDezApi.Api
             builder.Services.AddSwaggerGen();
 
             // Injeção dos módulos customizados  
-            builder.Services.AddMongoMongoDBDependencyModule(builder.Configuration);
+
             builder.Services.AddBusinessValidationsDependencyModule();
 
 

@@ -12,18 +12,18 @@ using Microsoft.AspNetCore.Mvc;
 namespace IDezApi.Api.Controllers
 {
     public class PesquisarMunicipiosController(ILogger<PesquisarMunicipiosController> logger,
-         IValidator<BuscarMunicipiosRequest> buscarMunicipiosValidatior,
+         IValidator<PesquisarMunicipiosRequest> pesquisarMunicipiosValidatior,
          IMapperService mapperService,
          IPesquisarMunicipiosUseCase pesquisarMunicipiosUseCase) : ControllerBase
     {
         private readonly ILogger<PesquisarMunicipiosController> _logger = logger;
-        private readonly IValidator<BuscarMunicipiosRequest> _validator = buscarMunicipiosValidatior;
+        private readonly IValidator<PesquisarMunicipiosRequest> _validator = pesquisarMunicipiosValidatior;
         private readonly IMapperService _mapper = mapperService;
         private readonly IPesquisarMunicipiosUseCase _pesquisarMunicipiosUseCase = pesquisarMunicipiosUseCase;
 
         [HttpPost]
         [Route("/api/get/PesquisarMunicipios")]
-        public async Task<ActionResult<BuscarMunicipiosResponse>> ExecuteAsync([FromBody] BuscarMunicipiosRequest request, CancellationToken cancellationToken)
+        public async Task<ActionResult<PesquisarMunicipiosResponse>> ExecuteAsync([FromBody] PesquisarMunicipiosRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("BuscarMunicipiosController: Create method called with request: {@Request}", request);
 
@@ -41,7 +41,7 @@ namespace IDezApi.Api.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
-            var input = _mapper.Map<BuscarMunicipiosRequest, BuscarMunicipiosInput>(request);
+            var input = _mapper.Map<PesquisarMunicipiosRequest, PesquisarMunicipiosInput>(request);
 
             var response = await _pesquisarMunicipiosUseCase.ExecuteAsync(input.Uf, cancellationToken);
 

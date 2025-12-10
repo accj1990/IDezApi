@@ -10,6 +10,8 @@ namespace IDezApi.Api.Validation
         {
             services.AddScoped<IValidator<BuscarMunicipiosRequest>, BuscarMunicipiosValidation>();
 
+            services.AddScoped<IValidator<PesquisarMunicipiosRequest>, PesquisarMunicipiosValidation>();
+
             return services;
         }
     }
