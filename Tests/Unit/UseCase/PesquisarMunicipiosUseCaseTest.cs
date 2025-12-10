@@ -16,11 +16,12 @@ namespace IDezApi.Tests.Unit.UseCase
     {
         private readonly ILogger<PesquisarMunicipiosUseCase> _logger;
         private readonly IPesquisarMunicipioService _pesquisarMunicipioService;
-
+        private readonly ICacheService _cacheService;
         public PesquisarMunicipiosUseCaseTest()
         {
             _logger = A.Fake<ILogger<PesquisarMunicipiosUseCase>>();
             _pesquisarMunicipioService = A.Fake<IPesquisarMunicipioService>();
+            _cacheService = A.Fake<ICacheService>();
         }
 
         [Fact]
@@ -32,7 +33,7 @@ namespace IDezApi.Tests.Unit.UseCase
             var input = new PesquisarMunicipiosUseCaseFixture().CreateInputModel();
             input.Uf = "XX"; // Invalid UF
 
-            var useCase = new PesquisarMunicipiosUseCase(_logger, fakeService);
+            var useCase = new PesquisarMunicipiosUseCase(_logger, fakeService, _cacheService);
 
             // Act
             var response = await useCase.ExecuteAsync(input.Uf, CancellationToken.None);
@@ -52,7 +53,7 @@ namespace IDezApi.Tests.Unit.UseCase
             input.Uf = "MG"; // Valid UF
 
             // Act
-            var useCase = new PesquisarMunicipiosUseCase(_logger, _pesquisarMunicipioService);
+            var useCase = new PesquisarMunicipiosUseCase(_logger, _pesquisarMunicipioService, _cacheService);
             var response = await useCase.ExecuteAsync(input.Uf, CancellationToken.None);
 
             // Assert

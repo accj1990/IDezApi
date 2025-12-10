@@ -16,11 +16,12 @@ public class BuscarMunicipiosUseCaseTest : BaseTestUseCase
 {
     private readonly ILogger<BuscarMunicipiosUseCase> _logger;
     private readonly IBuscarMunicipioService _buscarMunicipioService;
-
+    private readonly ICacheService _cacheService;
     public BuscarMunicipiosUseCaseTest()
     {
         _logger = A.Fake<ILogger<BuscarMunicipiosUseCase>>();
         _buscarMunicipioService = A.Fake<IBuscarMunicipioService>();
+        _cacheService = A.Fake<ICacheService>();
     }
 
     [Fact]
@@ -32,7 +33,7 @@ public class BuscarMunicipiosUseCaseTest : BaseTestUseCase
         var input = new BuscarMunicipiosUseCaseFixture().CreateInputModel();
         input.Uf = "XX"; // Invalid UF
 
-        var useCase = new BuscarMunicipiosUseCase(_logger, fakeService);
+        var useCase = new BuscarMunicipiosUseCase(_logger, fakeService, _cacheService);
 
         // Act
         var response = await useCase.ExecuteAsync(input.Uf, CancellationToken.None);
@@ -51,7 +52,7 @@ public class BuscarMunicipiosUseCaseTest : BaseTestUseCase
         var input = new BuscarMunicipiosUseCaseFixture().CreateInputModel();
         input.Uf = "MG"; // Valid UF
         // Act
-        var useCase = new BuscarMunicipiosUseCase(_logger, _buscarMunicipioService);
+        var useCase = new BuscarMunicipiosUseCase(_logger, _buscarMunicipioService, _cacheService);
         var response = await useCase.ExecuteAsync(input.Uf, CancellationToken.None);
 
         // Assert
